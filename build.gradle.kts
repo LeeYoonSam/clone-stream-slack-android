@@ -13,6 +13,10 @@ buildscript {
 }
 
 allprojects {
+    apply {
+        plugin("com.diffplug.spotless")
+    }
+
     repositories {
         google()
         mavenCentral()
@@ -31,3 +35,10 @@ tasks.register("clean")
     .configure {
         delete(rootProject.buildDir)
     }
+
+apply(from = teamPropsFile("git-hooks.gradle.kts"))
+
+fun teamPropsFile(propsFile: String): File {
+    val teamPropsDir = file("team-props")
+    return File(teamPropsDir, propsFile)
+}
