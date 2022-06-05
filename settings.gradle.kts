@@ -1,0 +1,2 @@
+// Root module
+include(":app")
