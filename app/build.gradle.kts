@@ -78,6 +78,8 @@ kapt {
 
 dependencies {
 
+    implementation(project(":common"))
+
     /* Android Designing and layout */
     implementation(Lib.Android.COMPOSE_LIVEDATA)
     implementation(Lib.Android.COMPOSE_NAVIGATION)
