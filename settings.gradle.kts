@@ -2,5 +2,5 @@
 include(":app")
 
 // Other modules
-include(":common")
 include(":domain")
+include(":common")
