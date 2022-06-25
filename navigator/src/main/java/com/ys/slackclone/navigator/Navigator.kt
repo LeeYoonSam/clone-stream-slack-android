@@ -1,12 +1,21 @@
 package com.ys.slackclone.navigator
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.NavOptionsBuilder
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onSubscription
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 abstract class Navigator {
 	val navigationCommands = MutableSharedFlow<NavigationCommand>(extraBufferCapacity = Int.MAX_VALUE)
@@ -64,6 +73,27 @@ abstract class ComposeNavigator : Navigator() {
 			popBackStack(it, false)
 		} ?: run {
 			navigateUp()
+		}
+	}
+}
+
+@OptIn(DelicateCoroutinesApi::class)
+fun <T> LiveData<T>.asFlow(): Flow<T> = flow {
+	val channel = Channel<T>(Channel.CONFLATED)
+	val observer = Observer<T> {
+		channel.trySend(it)
+	}
+	withContext(Dispatchers.Main.immediate) {
+		observeForever(observer)
+	}
+
+	try {
+		for (value in channel) {
+			emit(value)
+		}
+	} finally {
+		GlobalScope.launch(Dispatchers.Main.immediate) {
+			removeObserver(observer)
 		}
 	}
 }
