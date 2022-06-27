@@ -1,4 +1,4 @@
-package com.ys.slackclonecommonui.theme
+package com.ys.slackclone.commonui.theme
 
 import androidx.compose.ui.graphics.Color
 
