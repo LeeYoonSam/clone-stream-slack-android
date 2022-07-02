@@ -77,8 +77,11 @@ kapt {
 }
 
 dependencies {
-
+    implementation(project(":navigator"))
+    implementation(project(":data"))
+    implementation(project(":domain"))
     implementation(project(":common"))
+    implementation(project(":commonui"))
 
     /* Android Designing and layout */
     implementation(Lib.Android.COMPOSE_LIVEDATA)

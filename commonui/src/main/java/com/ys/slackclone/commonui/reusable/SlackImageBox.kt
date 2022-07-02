@@ -15,11 +15,11 @@ import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.skydoves.landscapist.ShimmerParams
 import com.skydoves.landscapist.glide.GlideImage
+import com.ys.slackclone.commonui.R
 import com.ys.slackclone.commonui.theme.ShimmerBackground
 import com.ys.slackclone.commonui.theme.ShimmerHighLight
 import com.ys.slackclone.commonui.theme.SlackCloneColorProvider
 import com.ys.slackclone.commonui.theme.SlackCloneSurface
-import com.ys.slackclonecommonui.R
 
 @Composable
 fun SlackImageBox(modifier: Modifier, imageModel: Any) {
