@@ -6,6 +6,7 @@ import androidx.navigation.navigation
 import com.ys.slackclone.navigator.ComposeNavigator
 import com.ys.slackclone.navigator.SlackRoute
 import com.ys.slackclone.navigator.SlackScreen
+import com.ys.slackclone.uionboarding.compose.GettingStartedUI
 
 fun NavGraphBuilder.onboardingNavigation(
 	composeNavigator: ComposeNavigator
@@ -15,7 +16,7 @@ fun NavGraphBuilder.onboardingNavigation(
 		route = SlackRoute.OnBoarding.name
 	) {
 		composable(SlackScreen.GettingStarted.name) {
-
+			GettingStartedUI(composeNavigator)
 		}
 		composable(SlackScreen.SkipTypingScreen.name) {
 
