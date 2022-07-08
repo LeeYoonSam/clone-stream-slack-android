@@ -7,6 +7,7 @@ import com.ys.slackclone.navigator.ComposeNavigator
 import com.ys.slackclone.navigator.SlackRoute
 import com.ys.slackclone.navigator.SlackScreen
 import com.ys.slackclone.uionboarding.compose.GettingStartedUI
+import com.ys.slackclone.uionboarding.compose.SkipTypingUI
 
 fun NavGraphBuilder.onboardingNavigation(
 	composeNavigator: ComposeNavigator
@@ -19,7 +20,7 @@ fun NavGraphBuilder.onboardingNavigation(
 			GettingStartedUI(composeNavigator)
 		}
 		composable(SlackScreen.SkipTypingScreen.name) {
-
+			SkipTypingUI(composeNavigator)
 		}
 		composable(SlackScreen.WorkspaceInputUI.name) {
 
