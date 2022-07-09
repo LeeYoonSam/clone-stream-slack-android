@@ -9,18 +9,18 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-// @HiltViewModel
-// class OnBoardingVM @Inject constructor(
-// 	private val useCaseLoginUser: UseCaseLoginUser
-// ) : ViewModel() {
-//
-// 	val input: MutableStateFlow<String> = MutableStateFlow("")
-// 	val loginState: MutableStateFlow<LoginState> = MutableStateFlow(LoginState.Nothing)
-//
-// 	fun connectUser() {
-// 		viewModelScope.launch {
-// 			loginState.value = LoginState.Loading
-// 			loginState.value = useCaseLoginUser.perform(input.value)
-// 		}
-// 	}
-// }
+@HiltViewModel
+class OnBoardingVM @Inject constructor(
+	private val useCaseLoginUser: UseCaseLoginUser
+) : ViewModel() {
+
+	val input: MutableStateFlow<String> = MutableStateFlow("")
+	val loginState: MutableStateFlow<LoginState> = MutableStateFlow(LoginState.Nothing)
+
+	fun connectUser() {
+		viewModelScope.launch {
+			loginState.value = LoginState.Loading
+			loginState.value = useCaseLoginUser.perform(input.value)
+		}
+	}
+}
