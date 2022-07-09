@@ -14,7 +14,7 @@ fun EmailAddressInputUI(
 	SlackCloneTheme {
 		CommonInputUI(
 			composeNavigator = composeNavigator,
-			TopView = { modifier ->  },
+			TopView = { modifier -> EmailInputView(modifier, onBoardingVM) },
 			subtitleText = stringResource(id = R.string.subtitle_this_email_slack),
 			onBoardingVM = onBoardingVM
 		)
