@@ -18,6 +18,7 @@
             <option value="$PROJECT_DIR$/commonui" />
             <option value="$PROJECT_DIR$/data" />
             <option value="$PROJECT_DIR$/domain" />
+            <option value="$PROJECT_DIR$/feat-chatcore" />
             <option value="$PROJECT_DIR$/feat-onboarding" />
             <option value="$PROJECT_DIR$/navigator" />
           </set>

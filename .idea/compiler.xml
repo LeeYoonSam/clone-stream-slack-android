@@ -9,6 +9,7 @@
       <module name="clone-stream-slack-android.common" target="11" />
       <module name="clone-stream-slack-android.commonui" target="11" />
       <module name="clone-stream-slack-android.data" target="11" />
+      <module name="clone-stream-slack-android.feat-chatcore" target="11" />
       <module name="clone-stream-slack-android.feat-onboarding" target="11" />
       <module name="clone-stream-slack-android.navigator" target="11" />
     </bytecodeTargetLevel>
