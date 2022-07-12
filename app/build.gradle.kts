@@ -77,12 +77,14 @@ kapt {
 }
 
 dependencies {
+    api(project(":feat-onboarding"))
+    api(project(":feat-chatcore"))
+
     implementation(project(":navigator"))
     implementation(project(":data"))
     implementation(project(":domain"))
     implementation(project(":common"))
     implementation(project(":commonui"))
-    implementation(project(":feat-onboarding"))
 
     /* Android Designing and layout */
     implementation(Lib.Android.COMPOSE_LIVEDATA)
