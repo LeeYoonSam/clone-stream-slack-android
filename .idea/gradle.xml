@@ -21,6 +21,7 @@
             <option value="$PROJECT_DIR$/feat-chatcore" />
             <option value="$PROJECT_DIR$/feat-onboarding" />
             <option value="$PROJECT_DIR$/navigator" />
+            <option value="$PROJECT_DIR$/ui-dashboard" />
           </set>
         </option>
       </GradleProjectSettings>
