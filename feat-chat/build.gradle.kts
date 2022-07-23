@@ -57,23 +57,26 @@ kapt {
 }
 
 dependencies {
-	api(project(":feat-chat"))
-	api(project(":feat-chatcore"))
-
+	/*Kotlin*/
 	implementation(project(":data"))
 	implementation(project(":domain"))
 	implementation(project(":common"))
 	implementation(project(":navigator"))
 	implementation(project(":commonui"))
+	implementation(project(":feat-chatcore"))
 
 	api(Lib.Android.COMPOSE_UI)
 	api(Lib.Android.COMPOSE_MATERIAL)
-	api(Lib.Android.COMPOSE_TOOLING)
+	api(Lib.Android.COMPOSE_FOUNDATION)
 	implementation(Lib.Android.ACCOMPANIST_SYSTEM_UI_CONTROLLER)
+	api(Lib.Android.COMPOSE_UI)
+	api(Lib.Android.COMPOSE_TOOLING)
 	implementation(Lib.Android.LANDSCAPIST_GLIDE)
 	debugApi(Lib.Android.COMPOSE_DEBUG_TOOLING)
 	api(Lib.Android.ACTIVITY_COMPOSE)
 	api(Lib.Android.CONSTRAINT_LAYOUT_COMPOSE)
+	implementation(Lib.Paging.PAGING_3)
+	implementation(Lib.Paging.PAGING_COMPOSE)
 
 	api(Lib.Android.APP_COMPAT)
 	api(Lib.Kotlin.KTX_CORE)

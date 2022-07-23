@@ -67,6 +67,7 @@ import com.ys.slackclone.commonui.theme.SlackCloneTypography
 import com.ys.slackclone.navigator.ComposeNavigator
 import com.ys.slackclone.navigator.SlackScreen
 import com.ys.slackclone.navigator.SlackScreen.CreateChannelsScreen
+import com.ys.slackclone.uichat.chatthread.ChatScreenUI
 import com.ys.slackclone.uidashboard.compose.Screen.DMs
 import com.ys.slackclone.uidashboard.compose.Screen.Home
 import com.ys.slackclone.uidashboard.compose.Screen.Mentions
@@ -150,11 +151,11 @@ private fun DashboardScreenRegular(
 		},
 		rightViewComposable = { chatViewModifier ->
 			lastChannel?.let { slackChannel ->
-				// ChatScreenUI(
-				// 	modifier = chatViewModifier,
-				// 	slackChannel = slackChannel.toStreamChannel(),
-				// 	onBackClick = { dashboardVM.isChatViewClosed.value = true },
-				// )
+				ChatScreenUI(
+					modifier = chatViewModifier,
+					slackChannel = slackChannel.toStreamChannel(),
+					onBackClick = { dashboardVM.isChatViewClosed.value = true },
+				)
 			}
 		}
 	) { mainViewModifier ->
