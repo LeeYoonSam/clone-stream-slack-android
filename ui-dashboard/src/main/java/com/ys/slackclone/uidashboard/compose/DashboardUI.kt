@@ -68,6 +68,7 @@ import com.ys.slackclone.navigator.ComposeNavigator
 import com.ys.slackclone.navigator.SlackScreen
 import com.ys.slackclone.navigator.SlackScreen.CreateChannelsScreen
 import com.ys.slackclone.uichat.chatthread.ChatScreenUI
+import com.ys.slackclone.uichat.chatthread.ChatScreenVM
 import com.ys.slackclone.uidashboard.compose.Screen.DMs
 import com.ys.slackclone.uidashboard.compose.Screen.Home
 import com.ys.slackclone.uidashboard.compose.Screen.Mentions
@@ -104,7 +105,7 @@ private fun DashboardScreenRegular(
 	dashboardNavController: NavHostController,
 	composeNavigator: ComposeNavigator,
 	dashboardVM: DashboardVM,
-	// viewModel: ChatScreenVM = hiltViewModel()
+	viewModel: ChatScreenVM = hiltViewModel()
 ) {
 	val keyboardController = LocalSoftwareKeyboardController.current
 	val lastChannel by dashboardVM.selectedChatChannel.collectAsState()
@@ -124,7 +125,7 @@ private fun DashboardScreenRegular(
 
 	SideEffect {
 		lastChannel?.let {
-			// viewModel.createChannel(it)
+			viewModel.createChannel(it)
 		}
 		if (isChatViewClosed) {
 			keyboardController?.hide()
