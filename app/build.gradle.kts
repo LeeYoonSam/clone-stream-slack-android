@@ -73,11 +73,13 @@ android {
 
 // Required for annotation processing plugins like Dagger
 kapt {
+    generateStubs = true
     correctErrorTypes = true
 }
 
 dependencies {
     api(project(":feat-onboarding"))
+    api(project(":ui-dashboard"))
     api(project(":feat-chatcore"))
 
     implementation(project(":navigator"))

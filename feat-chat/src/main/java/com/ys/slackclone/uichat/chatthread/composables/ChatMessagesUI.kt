@@ -10,6 +10,7 @@ import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import com.ys.slackclone.uichat.chatthread.composables.reactions.SlackCloneReactionFactory
 import io.getstream.chat.android.compose.state.messages.MessagesState
 import io.getstream.chat.android.compose.state.messages.list.DateSeparatorState
+import io.getstream.chat.android.compose.state.messages.list.MessageItemState
 import io.getstream.chat.android.compose.state.messages.list.SystemMessageState
 import io.getstream.chat.android.compose.ui.components.LoadingIndicator
 import io.getstream.chat.android.compose.ui.messages.list.Messages
@@ -41,16 +42,16 @@ fun ChatMessagesUI(
 						lazyListState = rememberMessageListState(parentMessageId = listViewModel.currentMessagesState.parentMessageId),
 						itemContent = { messageListItemState ->
 							when (messageListItemState) {
-								// is MessageItemState -> ChatMessage(
-								// 	messageItemState = messageListItemState,
-								// 	onLongItemClick = {
-								// 		listViewModel.selectMessage(it)
-								// 		keyboardController?.hide()
-								// 	},
-								// 	onReactionsClick = {
-								// 		listViewModel.selectReactions(it)
-								// 	}
-								// )
+								is MessageItemState -> ChatMessage(
+									messageItemState = messageListItemState,
+									onLongItemClick = {
+										listViewModel.selectMessage(it)
+										keyboardController?.hide()
+									},
+									onReactionsClick = {
+										listViewModel.selectReactions(it)
+									}
+								)
 
 								is DateSeparatorState -> ChatMessageDateSeparator(dateSeparator = messageListItemState)
 								is SystemMessageState -> ChatSystemMessage(systemMessageState = messageListItemState)

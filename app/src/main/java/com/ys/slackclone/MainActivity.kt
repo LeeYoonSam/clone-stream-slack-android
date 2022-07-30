@@ -11,6 +11,7 @@ import androidx.navigation.compose.rememberNavController
 import com.google.accompanist.insets.ProvideWindowInsets
 import com.ys.slackclone.navigator.ComposeNavigator
 import com.ys.slackclone.navigator.SlackRoute
+import com.ys.slackclone.uidashboard.nav.dashboardNavigation
 import com.ys.slackclone.uionboarding.nav.onboardingNavigation
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -40,6 +41,9 @@ class MainActivity : ComponentActivity() {
 				) {
 					onboardingNavigation(
 						composeNavigator = composeNavigator,
+					)
+					dashboardNavigation(
+						composeNavigator = composeNavigator
 					)
 				}
 			}
