@@ -1,6 +1,5 @@
 package com.ys.slackclone.commonui.reusable
 
-import android.animation.Animator
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.AnimationVector1D
 import androidx.compose.animation.core.tween
@@ -44,7 +43,7 @@ fun SlackDragComposableView(
 
 	val coroutineScope = rememberCoroutineScope()
 
-	InitialOffsetSideEffect(
+	InitialOffsetsSideEffect(
 		coroutineScope = coroutineScope,
 		sideNavOffX = sideNavOffX,
 		isLeftNavOpen = isLeftNavOpen,
@@ -80,7 +79,7 @@ fun SlackDragComposableView(
 }
 
 @Composable
-private fun InitialOffsetSideEffect(
+private fun InitialOffsetsSideEffect(
 	coroutineScope: CoroutineScope,
 	sideNavOffX: Animatable<Float, AnimationVector1D>,
 	isLeftNavOpen: Boolean,
@@ -119,17 +118,16 @@ private fun chatScreenModifier(
 	.pointerInput(Unit) {
 		detectHorizontalDragGestures(
 			onDragStart = {
-						  // start
-
+				// start
 			},
 			onDragEnd = {
-						rightViewEndTransition(offsetX, requiredOffset, coroutineScope, onOpen)
+				rightViewEndTransition(offsetX, requiredOffset, coroutineScope, onOpen)
 			},
 			onDragCancel = {
 				// cancel
 			},
 			onHorizontalDrag = { change, dragAmount ->
-				val summedMain = Offset(x = offsetX.targetValue, y = 0f)
+				val summedMain = Offset(x = offsetX.targetValue + dragAmount, y = 0f)
 				val newDragValueMain = Offset(x = summedMain.x.coerceIn(0f, requiredOffset), y = 0f)
 				change.consumePositionChange()
 				coroutineScope.launch {
@@ -165,6 +163,12 @@ private fun mainScreenModifier(
 					dragOffset = dragOffset,
 					coroutineScope = coroutineScope,
 					onOpenSideNav = onOpenSideNav
+				)
+				rightViewEndTransition(
+					chatViewOffX,
+					chatScreenOffset,
+					coroutineScope,
+					onOpenCloseRightView
 				)
 			},
 			onDragCancel = {

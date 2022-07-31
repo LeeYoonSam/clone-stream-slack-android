@@ -21,6 +21,7 @@ import com.ys.slackclone.chatcore.views.SlackChannelItem
 import com.ys.slackclone.commonui.material.SlackSurfaceAppBar
 import com.ys.slackclone.commonui.theme.SlackCloneColorProvider
 import com.ys.slackclone.commonui.theme.SlackCloneTheme
+import com.ys.slackclone.uichat.chatthread.composables.ChatScreenContent
 import io.getstream.chat.android.client.models.Channel
 
 @Composable
@@ -49,7 +50,7 @@ fun ChatScreenUI(
 				modifier = Modifier
 					.padding(innerPadding)
 			) {
-				// ChatScreenContent(slackChannel = slackChannel)
+				ChatScreenContent(slackChannel = slackChannel)
 			}
 		}
 	}
