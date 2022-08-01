@@ -16,12 +16,9 @@ android {
 	}
 
 	buildTypes {
-		release {
+		getByName("release") {
 			isMinifyEnabled = false
-			proguardFiles(
-				getDefaultProguardFile("proguard-android-optimize.txt"),
-				"proguard-rules.pro"
-			)
+			proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
 		}
 	}
 
@@ -32,7 +29,6 @@ android {
 	composeOptions {
 		kotlinCompilerExtensionVersion = Lib.Android.COMPOSE_COMPILER_VERSION
 	}
-
 	packagingOptions {
 		resources.excludes.add("META-INF/LICENSE.txt")
 		resources.excludes.add("META-INF/NOTICE.txt")
@@ -48,6 +44,7 @@ android {
 	kotlinOptions {
 		jvmTarget = "1.8"
 	}
+
 }
 
 // Required for annotation processing plugins like Dagger
@@ -57,24 +54,25 @@ kapt {
 }
 
 dependencies {
-	implementation(project(":feat-chat"))
-	implementation(project(":feat-channels"))
-	api(project(":feat-chatcore"))
-
+	/*Kotlin*/
 	implementation(project(":data"))
 	implementation(project(":domain"))
 	implementation(project(":common"))
 	implementation(project(":navigator"))
 	implementation(project(":commonui"))
+	implementation(project(":feat-chatcore"))
 
 	api(Lib.Android.COMPOSE_UI)
+	api(Lib.Android.LANDSCAPIST_GLIDE)
 	api(Lib.Android.COMPOSE_MATERIAL)
-	api(Lib.Android.COMPOSE_TOOLING)
 	implementation(Lib.Android.ACCOMPANIST_SYSTEM_UI_CONTROLLER)
-	implementation(Lib.Android.LANDSCAPIST_GLIDE)
+	api(Lib.Android.COMPOSE_UI)
+	api(Lib.Android.COMPOSE_TOOLING)
 	debugApi(Lib.Android.COMPOSE_DEBUG_TOOLING)
 	api(Lib.Android.ACTIVITY_COMPOSE)
 	api(Lib.Android.CONSTRAINT_LAYOUT_COMPOSE)
+	implementation(Lib.Paging.PAGING_3)
+	implementation(Lib.Paging.PAGING_COMPOSE)
 
 	api(Lib.Android.APP_COMPAT)
 	api(Lib.Kotlin.KTX_CORE)
