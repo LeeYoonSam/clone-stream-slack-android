@@ -6,6 +6,7 @@ import androidx.navigation.navigation
 import com.ys.slackclone.navigator.ComposeNavigator
 import com.ys.slackclone.navigator.SlackRoute
 import com.ys.slackclone.navigator.SlackScreen
+import com.ys.slackclone.uichat.newchat.NewChatThreadScreen
 import com.ys.slackclone.uidashboard.compose.DashboardUI
 
 fun NavGraphBuilder.dashboardNavigation(
@@ -28,7 +29,7 @@ fun NavGraphBuilder.dashboardNavigation(
 		}
 
 		composable(SlackScreen.CreateNewDM.name) {
-
+			NewChatThreadScreen(composeNavigator)
 		}
 	}
 
