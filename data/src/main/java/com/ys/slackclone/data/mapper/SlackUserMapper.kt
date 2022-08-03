@@ -30,5 +30,5 @@ class SlackUserMapper @Inject constructor() :
 }
 
 private fun Name.fullName(): String {
-	return "{${this.firstName} ${this.lastName}}"
+	return "${this.firstName} ${this.lastName}"
 }
