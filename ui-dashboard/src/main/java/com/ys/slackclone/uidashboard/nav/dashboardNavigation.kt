@@ -7,6 +7,7 @@ import com.ys.slackclone.navigator.ComposeNavigator
 import com.ys.slackclone.navigator.SlackRoute
 import com.ys.slackclone.navigator.SlackScreen
 import com.ys.slackclone.uichannels.createsearch.CreateNewChannelUI
+import com.ys.slackclone.uichannels.createsearch.SearchCreateChannelUI
 import com.ys.slackclone.uichat.newchat.NewChatThreadScreen
 import com.ys.slackclone.uidashboard.compose.DashboardUI
 
@@ -22,7 +23,7 @@ fun NavGraphBuilder.dashboardNavigation(
 		}
 
 		composable(SlackScreen.CreateChannelsScreen.name) {
-
+			SearchCreateChannelUI(composeNavigator)
 		}
 
 		composable(SlackScreen.CreateNewChannel.name) {
