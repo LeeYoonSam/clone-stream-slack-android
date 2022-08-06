@@ -26,6 +26,7 @@ import com.ys.slackclone.commonui.reusable.SlackListItem
 import com.ys.slackclone.commonui.theme.SlackCloneColorProvider
 import com.ys.slackclone.commonui.theme.SlackCloneSurface
 import com.ys.slackclone.commonui.theme.SlackCloneTypography
+import com.ys.slackclone.uichannels.views.SlackRecentChannels
 
 @Composable
 fun HomeScreenUI(
@@ -43,11 +44,10 @@ fun HomeScreenUI(
 				JumpToText()
 				ThreadsTile()
 				Divider(color = SlackCloneColorProvider.colors.lineColor, thickness = 0.5.dp)
-				// SlackRecentChannels({
-				// 	onItemClick(it)
-				// }, onClickAdd = {
-				// 	onCreateChannelRequest()
-				// })
+				SlackRecentChannels(
+					onItemClick = { onItemClick(it) },
+					onClickAdd = { onCreateChannelRequest() }
+				)
 				// SlackStarredChannels({
 				// 	onItemClick(it)
 				// }, onClickAdd = {
