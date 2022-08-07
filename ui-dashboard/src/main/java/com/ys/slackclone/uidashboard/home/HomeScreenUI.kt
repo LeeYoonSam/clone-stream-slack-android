@@ -26,6 +26,7 @@ import com.ys.slackclone.commonui.reusable.SlackListItem
 import com.ys.slackclone.commonui.theme.SlackCloneColorProvider
 import com.ys.slackclone.commonui.theme.SlackCloneSurface
 import com.ys.slackclone.commonui.theme.SlackCloneTypography
+import com.ys.slackclone.uichannels.views.SlackConnections
 import com.ys.slackclone.uichannels.views.SlackRecentChannels
 
 @Composable
@@ -63,11 +64,10 @@ fun HomeScreenUI(
 				// }, onClickAdd = {
 				// 	onCreateChannelRequest()
 				// })
-				// SlackConnections({
-				// 	onItemClick(it)
-				// }, onClickAdd = {
-				// 	onCreateChannelRequest()
-				// })
+				 SlackConnections(
+					 onItemClick = { onItemClick(it) },
+					 onClickAdd = { onCreateChannelRequest() }
+				 )
 			}
 		}
 	}
