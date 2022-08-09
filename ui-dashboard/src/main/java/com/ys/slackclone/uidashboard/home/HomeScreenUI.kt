@@ -28,6 +28,7 @@ import com.ys.slackclone.commonui.theme.SlackCloneSurface
 import com.ys.slackclone.commonui.theme.SlackCloneTypography
 import com.ys.slackclone.uichannels.views.SlackConnections
 import com.ys.slackclone.uichannels.views.SlackRecentChannels
+import com.ys.slackclone.uichannels.views.SlackStarredChannels
 
 @Composable
 fun HomeScreenUI(
@@ -49,11 +50,10 @@ fun HomeScreenUI(
 					onItemClick = { onItemClick(it) },
 					onClickAdd = { onCreateChannelRequest() }
 				)
-				// SlackStarredChannels({
-				// 	onItemClick(it)
-				// }, onClickAdd = {
-				// 	onCreateChannelRequest()
-				// })
+				SlackStarredChannels(
+					onItemClick = { onItemClick(it) },
+					onClickAdd = { onCreateChannelRequest() }
+				)
 				// SlackDirectMessages({
 				// 	onItemClick(it)
 				// }, onClickAdd = {
