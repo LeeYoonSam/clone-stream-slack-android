@@ -19,7 +19,6 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -101,7 +100,7 @@ fun CommonInputUI(
 
 						if (loginState == LoginState.Loading) {
 							CircularProgressIndicator(
-								color = Color.White,
+								color = SlackCloneColorProvider.colors.loadingColor,
 								modifier = Modifier.constrainAs(loading) {
 									top.linkTo(parent.top)
 									bottom.linkTo(parent.bottom)

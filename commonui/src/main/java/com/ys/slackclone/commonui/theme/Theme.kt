@@ -35,7 +35,8 @@ private val LightColorPalette = SlackCloneColorPalette(
 	appBarTextTitleColor = Color.White,
 	appBarTextSubTitleColor = Color.LightGray,
 	sendButtonDisabled = Color.LightGray,
-	sendButtonEnabled = Color.Black
+	sendButtonEnabled = Color.Black,
+	loadingColor = SlackLogoYellow
 )
 
 private val DarkColorPalette = SlackCloneColorPalette(
@@ -58,7 +59,8 @@ private val DarkColorPalette = SlackCloneColorPalette(
 	appBarTextTitleColor = Color.White,
 	appBarTextSubTitleColor = Color.LightGray,
 	sendButtonDisabled = Color.White.copy(alpha = 0.4f),
-	sendButtonEnabled = Color.White
+	sendButtonEnabled = Color.White,
+	loadingColor = SlackLogoYellow
 )
 
 @Composable
@@ -114,7 +116,8 @@ class SlackCloneColorPalette(
 	appBarTextTitleColor: Color,
 	appBarTextSubTitleColor: Color,
 	sendButtonDisabled: Color,
-	sendButtonEnabled: Color
+	sendButtonEnabled: Color,
+	loadingColor: Color
 ) {
 	var brand by mutableStateOf(brand)
 		private set
@@ -160,6 +163,9 @@ class SlackCloneColorPalette(
 	var sendButtonEnabled by mutableStateOf(sendButtonEnabled)
 		private set
 
+	var loadingColor by mutableStateOf(loadingColor)
+		private set
+
 	fun update(other: SlackCloneColorPalette) {
 		brand = other.brand
 		uiBackground = other.uiBackground
@@ -180,6 +186,7 @@ class SlackCloneColorPalette(
 		appBarTextSubTitleColor = other.appBarTextSubTitleColor
 		sendButtonEnabled = other.sendButtonEnabled
 		sendButtonDisabled = other.sendButtonDisabled
+		loadingColor = other.loadingColor
 	}
 }
 
