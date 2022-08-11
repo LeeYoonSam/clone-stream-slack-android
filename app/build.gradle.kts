@@ -20,7 +20,12 @@ android {
     }
 
     buildTypes {
-        val debug by getting {
+        create("benchmark") {
+	        signingConfig = signingConfigs.getByName("debug")
+	        matchingFallbacks += listOf("release")
+	        isDebuggable = false
+        }
+	    val debug by getting {
             isDebuggable = true
             versionNameSuffix = "-debug"
             applicationIdSuffix = ".debug"
@@ -36,13 +41,6 @@ android {
                 getDefaultProguardFile("proguard-android.txt"), "proguard-common.txt",
                 "proguard-specific.txt"
             )
-        }
-
-        val benchmark by creating {
-            initWith(release)
-            signingConfig = signingConfigs.getByName("debug")
-            matchingFallbacks.add("release")
-            proguardFiles("benchmark-rules.pro")
         }
     }
 

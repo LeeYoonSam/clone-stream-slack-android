@@ -3,6 +3,7 @@
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.8">
       <module name="clone-stream-slack-android.app" target="11" />
+      <module name="clone-stream-slack-android.benchmark" target="11" />
       <module name="clone-stream-slack-android.buildSrc" target="11" />
       <module name="clone-stream-slack-android.buildSrc.main" target="11" />
       <module name="clone-stream-slack-android.buildSrc.test" target="11" />

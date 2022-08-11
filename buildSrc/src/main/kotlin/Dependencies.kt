@@ -133,7 +133,7 @@ object TestLib {
 	private const val CORE_TEST_VERSION = "1.2.0"
 	private const val JUNIT_VERSION = "4.13"
 	private const val BASE_PROFILE_VERSION = "1.2.0-alpha02"
-	private const val MACRO_BENCHMARK_VERSION = "1.1.0-rc01"
+	private const val MACRO_BENCHMARK_VERSION = "1.2.0-alpha01"
 
 	const val ANDROIDX_TEST_RUNNER = "androidx.test:runner:$ANDROIDX_TEST_VERSION"
 	const val ANDROIDX_TEST_RULES = "androidx.test:rules:$ANDROIDX_TEST_VERSION"
